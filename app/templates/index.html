@@ -1,0 +1,31 @@
+<html>
+<head>
+    <!-- meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- bootstrap imports -->
+    <link rel='stylesheet' type='text/css' href='static/bootstrap.css'>
+    <link rel='stylesheet' type='text/css' href='static/index.css'>
+
+    <!-- javascript -->
+    <script src="static/index.js"></script>
+
+    <!-- title -->
+    {% if title %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title>Hack UCI 2021</title>
+    {% endif %}
+</head>
+
+<body>
+    <!-- header and surrounding things go here -->
+    <div class='container'>
+        <h1>MiddleMeet</h1>
+
+        <!-- content starts here  -->
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

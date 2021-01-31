@@ -1,0 +1,51 @@
+{% extends "index.html" %}
+{% block content %}
+    <!-- actual content goes here -->
+    <h3>Output</h3>
+    {% for yelp_place in yelp_data %}
+        <!-- begin the card showing content -->
+        <div class='row'>
+            <div class="card mb-3 col-md-6" style="">
+                <div class="row g-0 ">
+                    <!-- yelp image -->
+                    <div class="col-md-4">
+                        <img class='card-img' src="{{ yelp_place['image_url'] }}">
+                    </div>
+
+                    <!-- card body -->
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <!-- yelp text (name, location, rating, etc) -->
+                            <h5 class="card-title">{{ yelp_place['name'] }}</h5>
+                            <p class="card-text">{{ yelp_place['location'] }}</p>
+                            <p class="card-text">Rating: {{ yelp_place['rating'] }}/5.0</p>
+
+                            <!-- change the right div -->
+                            <button class='btn btn-info' onclick="showInfo('{{ yelp_place['divid'] }}')">
+                                More info
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="{{ yelp_place['divid'] }}" class="col-md-6 " style="visibility: hidden;">
+                <div class='card'>
+                    <div class="card-body">
+                        <!-- travel times -->
+                        {% for time_str in yelp_place['times'] %}
+                            <p class='card-text'>{{ time_str }}</p>
+                        {% endfor %}
+
+                        <!-- twilio -->
+                        {% if phone_no %}
+                            <button class='btn btn-success' onclick="window.location.href='{{url_for("twilio", phone_no=phone_no, name=yelp_place['name'], address=yelp_place['location'])}}'">
+                                Text this location to me
+                            </button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock content %}
+

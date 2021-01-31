@@ -1,0 +1,112 @@
+{% extends "index.html" %}
+{% block content %}
+    <!-- actual content goes here -->
+    <div class='px-5'>
+    <p class='px-5'>
+        Note: while street addresses are <strong>optional</strong>, they will increase the accuracy of your results.
+        We will <strong>never</strong> store any of the information you give. 
+    </p>
+        
+    <form id='addresses' class='px-5' action="/results" method="post">
+        <div class='row'>
+            <div class='col-md-9'>
+                <!-- user inputs 1 -->
+                <div class='form-group p-3'>
+                    <h3>Person 1</h3>
+
+                    <div class='form-group'>
+                        <label for='street1'>Street Address</label>
+                        <input id='street1' type="text" class="form-control" name="street1"/>
+                    </div>
+
+                    <div class='form-row'></div>
+                    <div class='form-group'>
+                        <label for='city1'>City</label>
+                        <input id='city1' type="text" class="form-control" name="city1" required/>
+                    </div>
+
+                    <div class='form-group'>
+                        <label for='state1'>State</label>
+                        <input id='state1' type="text" class="form-control" name="state1" required/>
+                    </div>
+
+                    <div class='form-group'>
+                        <label for='zip1'>Zip Code</label>
+                        <input id='zip1' type="text" class="form-control" name="zip1" />
+                    </div>
+                </div>
+
+                <!-- user inputs 2 -->
+                <div class='form-group px-3 pt-3'>
+                    <h3>Person 2</h3>
+
+                    <div class='form-group'>
+                        <label for='street2'>Street Address</label>
+                        <input id='street2' type="text" class="form-control" name="street2"/>
+                    </div>
+
+                    <div class='form-group'>
+                        <label for='city2'>City</label>
+                        <input id='city2' type="text" class="form-control" name="city2" required/>
+                    </div>
+
+                    <div class='form-group'>
+                        <label for='state2'>State</label>
+                        <input id='state2' type="text" class="form-control" name="state2" required/>
+                    </div>
+
+                    <div class='form-group'>
+                        <label for='zip2'>Zip Code</label>
+                        <input id='zip2' type="text" class="form-control" name="zip2" />
+                    </div>
+                </div>
+
+                <div id='addPerson3' class='p-3'>
+                    <button class='btn btn-secondary' type='button' onclick="addPerson(3)">Add person</button>
+                </div>
+            </div>
+
+            <!-- other address forms -->
+            <div class='col-md-3'>
+                <!-- activity selector -->
+                <div class='p-3'>
+                    <h5>Select an activity:</h5>
+                    <select class="form-select" name='activity' form='addresses'>
+                        <option value="food">Food</option>
+                        <option value="cinema">Cinema</option>
+                        <option value="parks">Parks</option>
+                        <option value="shopping">Shopping</option>
+                        <option value="hikes">Hikes</option>
+                    </select>
+                </div>
+
+                <!-- phone number -->
+                <div class='form-group p-3'>
+                    <h5>Phone Number (optional)</h5>
+                    <input id='phone' type="text" class="form-control" name="phone" />
+                </div>
+
+                <!-- max results -->
+                <div class='p-3'>
+                    <h5>Maximum results:</h5>
+                    <select class="form-select" name='maxres' form='addresses'>
+                        <option value="1">1</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class='row justify-content-end pt-5'>
+            <!-- submit -->
+            <div class='col-4 pr-3'>
+                <input id="submit-button" class='btn btn-primary' type="submit" value="Submit"/>
+            </div>
+        </div>
+    </form>
+    </div>
+
+
+{% endblock content %}
+

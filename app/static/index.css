@@ -1,0 +1,18 @@
+
+#submit-button {
+    width: 100%;
+}
+
+.yelp-location{
+    max-height: 25%;
+}
+
+
+.yelp-location img{
+    max-height: 100%;
+}
+
+.card-img {
+    max-height: 150px;
+    object-fit: cover;
+}

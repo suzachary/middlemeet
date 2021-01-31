@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+    <!-- bootstrap imports -->
+    <link rel='stylesheet' type='text/css' href='../../../static/bootstrap.css'>
+    <link rel='stylesheet' type='text/css' href='../../../static/index.css'>
+
+    <!-- javascript -->
+    <script src="../../../static/index.js"></script>
+
+    <div class="card text-white bg-success mb-3 px-5">
+        <div class="card-header">Success!</div>
+        <div class="card-body">
+            <h5 class="card-title">Your text has been sent.</h5>
+            <p class="card-text">We're sending you a text now at {{phone_no}} for {{name}} at {{address}}. </p>
+            <p class="card-text">Thank you for using our app!</p>
+        </div>
+    </div>
+{% endblock content %}
+
+
